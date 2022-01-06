@@ -68,6 +68,10 @@ body{
 	overflow: hidden;
 }
 
+.NavbarContainer{
+	width: 100%;
+}
+
 .Logo{
 	position: absolute;
 	left: 40px;
