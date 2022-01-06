@@ -24,6 +24,13 @@ function ToggleNav() {
 }
 </script>
 
+<script>
+    setInterval(DBG, 100);
+
+    function DBG() {
+    document.getElementById("ScreenDBG").innerHTML = "Screen width is " + window.innerWidth;
+    }
+</script>
 
 </head>
 <body>
@@ -81,29 +88,13 @@ function ToggleNav() {
         </p>
     </div>
     <h2 class="MainPageTitle">
-        Did I have no Idea what to put on this page?
+        Nice Debug Stuff?
     </h2>
     <div class="WorkingOnBox">
-        <p class="MainPageText">
+        <p class="MainPageText" id="ScreenDBG">
             Yes.
         </p>
-    </div> 
-    <h2 class="MainPageTitle">
-        Did I have no Idea what to put on this page?
-    </h2>
-    <div class="WorkingOnBox">
-        <p class="MainPageText">
-            Yes.
-        </p>
-    </div> 
-    <h2 class="MainPageTitle">
-        Did I have no Idea what to put on this page?
-    </h2>
-    <div class="WorkingOnBox">
-        <p class="MainPageText">
-            Yes.
-        </p>
-    </div>     
+    </div>    
 </div>
 </body>
 </html>
