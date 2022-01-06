@@ -20,7 +20,10 @@ body{
 	width: calc(100px + 40vw);
 	height: auto;
 	background: rgba(20, 20, 20 , 1);
-	padding: 10px;
+	padding-top: 8%;
+	padding-bottom: 8%;
+	padding-right: 2%;
+	padding-left: 2%;
 }
 
 .Title{
