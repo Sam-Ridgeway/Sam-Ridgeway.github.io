@@ -1,0 +1,47 @@
+<html>
+<head>
+<link rel="stylesheet" href="main.css">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+</style>
+
+
+<!--Scripts for the navbar-->
+<script>
+/*  */
+function ToggleNav() {
+    var x = document.getElementById("Navbar");
+    if(x.className === "Closed"){
+        x.className = "Open";
+    }
+    else{
+        x.className = "Closed";
+    }
+    document.getElementById("bar1").classList.toggle("change");
+    document.getElementById("bar2").classList.toggle("change");
+    document.getElementById("bar3").classList.toggle("change");
+    
+}
+</script>
+
+
+</head>
+<body>
+
+
+<ul id="Navbar" class="Closed">
+        <li class="NavLink" id="CurrentNav"><a href="index.html">Home</a></li>
+        <li class="NavLink"><a href="index.html">Projects</a></li>
+        <li class="NavLink"><a href="index.html">About Me</a></li>
+    <li class="icon">
+        <a href="javascript:void(0);" onclick="ToggleNav()">
+            <div id="bar1"></div>
+            <div id="bar2"></div>
+            <div id="bar3"></div>
+            </div>
+        </a>
+    </li>
+</ul>
+
+</body>
+</html>

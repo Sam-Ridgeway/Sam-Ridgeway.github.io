@@ -138,7 +138,7 @@ body{
 	transform: rotate(45deg) translate(-4px, -10px);
   }
 
-@media screen and (max-width: 690px) {
+@media screen and (max-width: 600px) {
 	.closed .navlink:not(#CurrentNav){
 		display: none;
 	}
@@ -157,4 +157,47 @@ body{
 	}
 	
 }
+
+
+/*Main Page stuff*/
+.MainPageDiv{
+	width: 100%;
+	height: auto;
+	background: rgb(20, 20, 20);
+	position: relative;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.MainPageTitle{	
+	border: 0 solid;
+	padding: calc(5px + 2vw);
+	margin: auto;
+	width: auto;
+	font-size: calc(20px + 1vw);
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 500;
+	color: rgba(0, 200, 200 , 0.8);
+	text-align: center;
+}
+
+.WorkingOnBox{
+	width: 70%;
+	height: auto;
+	background: rgba(200, 200, 200 , 0.9);
+	margin: auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.MainPageText{
+	border: 0 solid;
+	padding: calc(5px + 2vw);
+	margin: 0px;
+	font-size: calc(10px + 1vw);
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 300;
+	color: rgba(20, 20, 20 , 0.9);
+}
+
 
