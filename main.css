@@ -80,15 +80,11 @@ body{
 }
 
 .navlink{
-	float: left ;
-	display: block;
+	display: inline-block;
 	padding-top: 10px;
 	padding-bottom: 10px;
 	padding-left: 20px;
 	padding-right: 20px;
-}
-
-.navlink a{
 	color: rgba(200, 200, 200 , 0.8);
 	text-decoration: none;
 	font-size: 32px;
@@ -159,6 +155,7 @@ body{
 }
 
 
+/*Main Page stuff*/
 .MainPageDiv{
 	width: 100%;
 	height: auto;
@@ -199,4 +196,5 @@ body{
 	color: rgba(20, 20, 20 , 0.9);
 }
 
+/*Projects Page Specific stuff below*/
 
