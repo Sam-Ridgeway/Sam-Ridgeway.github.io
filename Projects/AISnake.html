@@ -27,19 +27,19 @@
     </script>
 
     <!--Scripts for the Algo Snake-->
-    <script src="Snake - Algo/Build/Snake - Algo.loader.js"></script>
+    <script src="Build/AISnake.loader.js"></script>
     <script>
-        createUnityInstance(document.querySelector("#unity-canvas"), {
-        dataUrl: "Build/Snake - Algo.data.unityweb",
-        frameworkUrl: "Build/Snake - Algo.framework.js.unityweb",
-        codeUrl: "Build/Snake - Algo.wasm.unityweb",
-        streamingAssetsUrl: "StreamingAssets",
+      createUnityInstance(document.querySelector("#unity-canvas"), {
+        dataUrl: "AISnake/Build/AISnake.data.unityweb",
+        frameworkUrl: "AISnake/Build/AISnake.framework.js.unityweb",
+        codeUrl: "AISnake/Build/AISnake.wasm.unityweb",
+        streamingAssetsUrl: "AISnake/StreamingAssets",
         companyName: "Ridgles",
         productName: "Algorithm Plays Snake",
         productVersion: "1.0",
         // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
         // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
-        });
+      });
     </script>
   </head>
 
@@ -71,9 +71,7 @@
             Below is the final build however Beyond that is the story of how I ended up with this build. I hope you enjoy :)
             </div>
 
-            <div class = "UnityContainer">
-                <canvas class="unity-canvas"></canvas>
-            </div>
+            <canvas id="unity-canvas" width=1920 height=1080 style="width: 1920px; height: 1080px; background: #231F20"></canvas>
 
             <h2 class="ProjectSubTitle1">The Development Story</h2>
 
