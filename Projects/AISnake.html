@@ -27,20 +27,6 @@
     </script>
 
     <!--Scripts for the Algo Snake-->
-    <script src="AISnake/Build/AISnake.loader.js"></script>
-    <script>
-      createUnityInstance(document.querySelector("#unity-canvas"), {
-        dataUrl: "AISnake/Build/AISnake.data.unityweb",
-        frameworkUrl: "AISnake/Build/AISnake.framework.js.unityweb",
-        codeUrl: "AISnake/Build/AISnake.wasm.unityweb",
-        streamingAssetsUrl: "AISnake/StreamingAssets",
-        companyName: "Ridgles",
-        productName: "Algorithm Plays Snake",
-        productVersion: "1.0",
-        // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
-        // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
-      });
-    </script>
   </head>
 
   <body>
@@ -71,7 +57,7 @@
             Below is the final build however Beyond that is the story of how I ended up with this build. I hope you enjoy :)
             </div>
 
-            <canvas id="unity-canvas" width=1920 height=1080 style="width: 1920px; height: 1080px; background: #231F20"></canvas>
+            <iframe src="https://sam-ridgeway.github.io/Projects/AISnake/index" name="AI Snake" style="height: 576px;width:1024px;border:none;" title="AI Snake"></iframe>
 
             <h2 class="ProjectSubTitle1">The Development Story</h2>
 
