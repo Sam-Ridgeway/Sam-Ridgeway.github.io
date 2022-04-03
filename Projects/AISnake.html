@@ -65,8 +65,19 @@
                 The main inspiration for starting this project was that I wanted to learn how to use MlAgents with Unity. I thought a reasonable first experience would be to try a relatively simple game like snake.
                 The making of the game didn't go too badly I had some issues with food generating on the snakes tail but other than that the game itself was playable.
                 Now comes the part of actually implementing the AI.
-                <br><br><br>
-                My Friend Izack has experience with MlAgent so he helped me implement it into my game and then it was a case of tweaking it and letting it train.
+                <br><br>
+                My Friend Izack has experience with MlAgents so he helped me implement it into my game and then it was a case of tweaking it and letting it train.
+                There were a few bugs along the way mainly with food generation.
+                I was struggling to get food not to spawn in the snake.
+                Eventually I got this fixed, I believe it was something to do with the order in which the scripts ran.
+                Back to the AI.
+                <br><br>
+                Using MLAgents meant that a lot of the AI stuff is done behind the scenes.
+                The only real thing I had to do was give it inputs.
+                I ended up giving it a raycast from the head which could detect walls,food and the tail.
+                I also gave it the coordinate position for the head and food.
+                All in all I felt this was a good mix of inputs.
+
 
             </div>
         </div>
