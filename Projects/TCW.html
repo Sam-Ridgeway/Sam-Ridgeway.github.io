@@ -1,0 +1,99 @@
+<html>
+  <head>
+    <!--Title and Meta tags-->  
+    <title>The Coldest War</title>
+    <meta name="description" content="Personal Programming Projects.">
+    <meta name="keywords" content="The Coldest War, Programming, Strategy Games, Unity, Games">
+    <meta name="author" content="Sam Ridgeway">
+
+    <!--CSS and Style stuff-->
+
+    <link rel="stylesheet" href="../main.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    </style>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Scripts for the navbar-->
+    <script>
+    /*  */
+    function ToggleNav() {
+        var x = document.getElementById("Navbar");
+        if(x.className === "Closed"){
+            x.className = "Open";
+        }
+        else{
+            x.className = "Closed";
+        }
+        document.getElementById("bar1").classList.toggle("change");
+        document.getElementById("bar2").classList.toggle("change");
+        document.getElementById("bar3").classList.toggle("change");
+        }
+    </script>
+
+    <!--Scripts for the Algo Snake-->
+  </head>
+
+  <body>
+
+    <div class="NavbarContainer">
+        <ul id="Navbar" class="Closed">
+            <a href="../index.html" class="NavLink">Home</a>
+            <a href="../projects.html" class="NavLink">Projects</a>
+            <a href="../about.html" class="NavLink">About Me</a>
+            <a href="TCW.html" class="NavLink" id="CurrentNav">The Coldest War</a>
+            <li class="icon">
+                <a href="javascript:void(0);" onclick="ToggleNav()">
+                    <div id="bar1"></div>
+                    <div id="bar2"></div>
+                    <div id="bar3"></div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="ProjectDiv1">
+        <div class="ProjectSubDiv1">
+            <h2 class="ProjectTitle1">The Coldest War</h2>
+
+            <div class="ProjectDesc1">
+            This was a game that I developed as my A Level Computer Science Project.
+            I really enjoyed making it and it was a great introduction to Unity and Game Development in general.
+            </div>
+
+            <h2 class="ProjectSubTitle1">A bit about the development</h2>
+
+            <div class="ProjectText1">
+                As mentioned above this project was done for my A Level Computer Science course.
+                This means that it's a little more structured than some of my other projects and also has a report to go with it.
+                The main idea of it comes from my love for Paradox games such as Hearts of Iron IV and Crusader Kings 3.
+                I figured there wasn't really a game set around the cold war and I thought it fit the genre quite well so I decided I would give it a go myself.
+                So after doing a bit of design work I was ready to get started.<br><br>
+
+                I had settled on the main idea of the game being that you control the USA at the start of the cold war 
+                and have to try and beat the Soviet Union in one of multiple victory conditions.
+                This could be either the Space Race, nuclear war as well as a few others.
+                A lot of the time was the UI design and development as that is how the game is played.
+                The rest of the time was spent working on the AI that the user plays against.
+                I ended up with a relatively simple implementation where the AI takes a random amount of weighted actions each turn.
+                The result turned out pretty good and is what I stuck with for the final version.<br><br>
+
+                The next thing I had to work on was a save system. 
+                This was quite tricky at first as I had no experience with how you save data in Unity.
+                In the end I found some tutorials online and applied what I learnt from them to my project and it did the trick.
+                I used JSON files in the end as there were plenty of tutorials to follow and they suited my needs.
+
+                Lastly I wanted to implement the ability to mod the game, mainly change names of characters. 
+                This involved essentially creating a namelist in a file that allowed the user to change the contents then interpreting it accordingly.<br><br>
+                That's about it for this project, thanks for reading.
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p class="footertext">That's it for this page :(</p>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,502 @@
+<html>
+
+<head>
+
+<link rel="stylesheet" href="../main.css">
+
+<!--Font Import below-->
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Ubuntu&display=swap');
+</style>
+
+
+<!--Main Algorithm in script below-->
+
+<script type="text/javascript">
+
+var R1 = [[ 'A', 'P'],[ 'B', 'E'],[ 'C', 'Z'],[ 'D', 'U'],[ 'E', 'O'],[ 'F', 'H'],[ 'G', 'X'],[ 'H', 'S'],[ 'I', 'C'],[ 'J', 'V'],[ 'K', 'F'],[ 'L', 'M'],[ 'M', 'T'],[ 'N', 'B'],[ 'O', 'G'],[ 'P', 'L'],[ 'Q', 'R'],[ 'R', 'I'],[ 'S', 'N'],[ 'T', 'Q'],[ 'U', 'J'],[ 'V', 'W'],[ 'W', 'A'],[ 'X', 'Y'],[ 'Y', 'D'],[ 'Z', 'K']];
+var R2 = [[ 'A', 'Z'],[ 'B', 'O'],[ 'C', 'U'],[ 'D', 'E'],[ 'E', 'S'],[ 'F', 'Y'],[ 'G', 'D'],[ 'H', 'K'],[ 'I', 'F'],[ 'J', 'W'],[ 'K', 'P'],[ 'L', 'C'],[ 'M', 'I'],[ 'N', 'Q'],[ 'O', 'X'],[ 'P', 'H'],[ 'Q', 'M'],[ 'R', 'V'],[ 'S', 'B'],[ 'T', 'L'],[ 'U', 'G'],[ 'V', 'N'],[ 'W', 'J'],[ 'X', 'R'],[ 'Y', 'A'],[ 'Z', 'T']];
+var R3 = [[ 'A', 'E'],[ 'B', 'H'],[ 'C', 'R'],[ 'D', 'V'],[ 'E', 'X'],[ 'F', 'G'],[ 'G', 'A'],[ 'H', 'O'],[ 'I', 'B'],[ 'J', 'Q'],[ 'K', 'U'],[ 'L', 'S'],[ 'M', 'I'],[ 'N', 'M'],[ 'O', 'Z'],[ 'P', 'F'],[ 'Q', 'L'],[ 'R', 'Y'],[ 'S', 'N'],[ 'T', 'W'],[ 'U', 'K'],[ 'V', 'T'],[ 'W', 'P'],[ 'X', 'D'],[ 'Y', 'J'],[ 'Z', 'C']];
+var R4 = [[ 'A', 'I'],[ 'B', 'M'],[ 'C', 'E'],[ 'D', 'T'],[ 'E', 'C'],[ 'F', 'G'],[ 'G', 'F'],[ 'H', 'R'],[ 'I', 'A'],[ 'J', 'Y'],[ 'K', 'S'],[ 'L', 'Q'],[ 'M', 'B'],[ 'N', 'Z'],[ 'O', 'X'],[ 'P', 'W'],[ 'Q', 'L'],[ 'R', 'H'],[ 'S', 'K'],[ 'T', 'D'],[ 'U', 'V'],[ 'V', 'U'],[ 'W', 'P'],[ 'X', 'O'],[ 'Y', 'J'],[ 'Z', 'N']];
+var R5 = [[ 'A', 'Q'],[ 'B', 'W'],[ 'C', 'E'],[ 'D', 'R'],[ 'E', 'T'],[ 'F', 'Z'],[ 'G', 'U'],[ 'H', 'I'],[ 'I', 'O'],[ 'J', 'A'],[ 'K', 'S'],[ 'L', 'D'],[ 'M', 'F'],[ 'N', 'G'],[ 'O', 'H'],[ 'P', 'J'],[ 'Q', 'K'],[ 'R', 'P'],[ 'S', 'Y'],[ 'T', 'X'],[ 'U', 'C'],[ 'V', 'V'],[ 'W', 'B'],[ 'X', 'N'],[ 'Y', 'M'],[ 'Z', 'L']];
+var Reflector = [[ 'A', 'V'],[ 'B', 'K'],[ 'C', 'W'],[ 'D', 'R'],[ 'E', 'G'],[ 'F', 'I'],[ 'G', 'E'],[ 'H', 'T'],[ 'I', 'F'],[ 'J', 'Z'],[ 'K', 'B'],[ 'L', 'U'],[ 'M', 'S'],[ 'N', 'P'],[ 'O', 'Q'],[ 'P', 'N'],[ 'Q', 'O'],[ 'R', 'D'],[ 'S', 'M'],[ 'T', 'H'],[ 'U', 'L'],[ 'V', 'A'],[ 'W', 'C'],[ 'X', 'Y'],[ 'Y', 'X'],[ 'Z', 'J']];
+
+
+
+function Enigma(){
+	var inputtxt = document.getElementById("inp");
+	var Plaintext = (inputtxt.value).toUpperCase();
+	var Plaintext = Plaintext.split(" ").join("");
+
+
+	//rotors
+	var rotor1 = document.getElementById("1rotor");
+	var rotor1 = eval(rotor1.value);
+	
+	var rotor2 = document.getElementById("2rotor");
+	var rotor2 = eval(rotor2.value);
+
+	var rotor3 = document.getElementById("3rotor");
+	var rotor3 = eval(rotor3.value);
+
+	//Positions
+	var pos1 = document.getElementById("1pos");
+	var pos1 = pos1.value - 1;
+
+	var pos2 = document.getElementById("2pos");
+	var pos2 = pos2.value - 1;
+
+	var pos3 = document.getElementById("3pos");
+	var pos3 = pos3.value - 1;
+
+	var Ref = Reflector;
+
+	var cipher=[];
+
+	//The Actual Machine Script
+	for (var i = 0; i < Plaintext.length; i++) {
+		x = Plaintext.charAt(i);
+
+		//plug
+
+		for (var k = 0; k < initialplugs.length; k++) {
+
+			if(x==initialplugs[k]){
+				x = targetplugs[k];
+				console.log("Used Plug")
+				break;
+				
+			}
+			else if(x==targetplugs[k]){
+				x = initialplugs[k];
+				console.log("Used Plug")
+				break;
+			}
+		}
+
+		for (var k = 0; k < 26; k++) {
+			j = k + pos1;
+
+			if (j >= 26){
+				j -= 26;
+			}
+
+
+			if( x == rotor1[k][0]){
+				x = rotor1[j][1];
+				break;
+			}
+		}
+
+		for (var k = 0; k < 26; k++) {
+			j = k + pos2;
+
+			if (j >= 26){
+				j -= 26;
+			}
+
+
+			if( x == rotor2[k][0]){
+				x = rotor2[j][1];
+				break;
+			}
+		}
+
+		for (var k = 0; k < 26; k++) {
+			j = k + pos3;
+
+			if (j >= 26){
+				j -= 26;
+			}
+
+
+			if( x == rotor3[k][0]){
+				x = rotor3[j][1];
+				break;
+			}
+		}
+
+		//Reflector
+
+		for (var k = 0; k < 26; k++) {
+			if( x == Ref[k][0]){
+				x = Ref[k][1];
+				break;
+			}
+		}
+
+		//Going Back
+
+		for (var k = 0; k < 26; k++) {
+			j = k + pos3;
+
+			if (j >= 26){
+				j -= 26;
+			}
+
+			if( x == rotor3[j][1]){
+				x = rotor3[k][0];
+				break;
+			}
+		}
+
+		for (var k = 0; k < 26; k++) {
+			j = k + pos2;
+
+			if (j >= 26){
+				j -= 26;
+			}
+
+			if( x == rotor2[j][1]){
+				x = rotor2[k][0];
+				break;
+			}
+		}
+
+		for (var k = 0; k < 26; k++) {
+			j = k + pos1;
+
+			if (j >= 26){
+				j -= 26;
+			}
+
+
+			if( x == rotor1[j][1]){
+				x = rotor1[k][0];
+				break;
+			}
+		}
+
+		for (var k = 0; k < initialplugs.length; k++) {
+
+			if(x==initialplugs[k]){
+				x = targetplugs[k];
+				break;
+			}
+			else if(x==targetplugs[k]){
+				x = initialplugs[k];
+				break;
+			}
+		}
+
+		cipher.push(x);
+
+
+		//Incrementing Rotors
+		pos3 +=1;
+		console.log("Incremented")
+
+		if (pos3>=26){
+			pos3 = 0;
+			pos2 +=1;
+		}
+		if (pos2>=26){
+			pos2 = 0;
+			pos1 +=1;
+		}
+		if (pos1>=26){
+			pos1 = 0;
+		}
+	}
+
+
+
+	var Ciphertext = cipher.join('');
+	document.getElementById("Cipher").innerHTML = Ciphertext;
+}
+
+
+
+//Plugboard
+var plugged = false; //variable for if something is plugged or not
+var color ;
+var initialplug;
+var targetplug;
+
+var initialplugs=[];
+var targetplugs=[];
+
+function plug(plug) 
+{
+
+	for (var k = 0; k < initialplugs.length; k++) {
+        //If plug already plugged (as an initial plug) then remove both from list
+		if (initialplugs[k] == plug.id && targetplugs.length == initialplugs.length){
+			document.getElementById(initialplugs[k]).style.backgroundColor = 333333;
+			document.getElementById(targetplugs[k]).style.backgroundColor = 333333;
+			initialplugs.splice(k,1);
+			targetplugs.splice(k,1);
+			return;
+		}
+        //If plug already plugged (as a final plug) then remove both from list
+		else if(targetplugs[k] == plug.id){
+			document.getElementById(initialplugs[k]).style.backgroundColor = 333333;
+			document.getElementById(targetplugs[k]).style.backgroundColor = 333333;
+			initialplugs.splice(k,1);
+			targetplugs.splice(k,1);
+			return;
+		}
+        //If plug already plugged but no second selected then   
+		
+        /*else if(initialplugs[k] == plug.id){
+			document.getElementById(plug.id).style.backgroundColor = 333333;
+			initialplugs.splice(k,1)
+			return;
+		}*/
+
+	}
+    //Check not already plugged
+    //If already plugged then remove plug
+    if(plug.id == initialplug){
+        document.getElementById(initialplug).style.backgroundColor = 333333;
+        plugged = false
+        initialplug = null;
+    }
+	else if(plugged == false)
+	{
+		color = randcol();
+		document.getElementById(plug.id).style.backgroundColor = color;
+		plugged = true;
+		initialplug = plug.id;
+	}
+	else
+    {
+		document.getElementById(plug.id).style.backgroundColor = color;
+		plugged = false;
+		targetplug = plug.id;
+		targetplugs.push(targetplug);
+		initialplugs.push(initialplug);
+        initialplug = null;
+        targetplug = null;
+	}
+}
+
+
+
+
+//Random colour for plugs
+function randcol(){
+	var allchar="0123456789ABCDEF";
+	var  randcol= "";
+	for(var i=0; i<6; i++){
+	   randcol += allchar[Math.floor(Math.random()*16)];
+	}
+	return randcol;
+}
+
+
+
+
+</script>
+
+</head>
+
+
+<!--Main page below-->
+
+<body>
+
+    <div class="NavbarContainer">
+        <ul id="Navbar" class="Closed">
+            <a href="../index.html" class="NavLink">Home</a>
+            <a href="../projects.html" class="NavLink">Projects</a>
+            <a href="../about.html" class="NavLink">About Me</a>
+            <a href="Engima.html" class="NavLink" id="CurrentNav">Enigma Machine</a>
+            <li class="icon">
+                <a href="javascript:void(0);" onclick="ToggleNav()">
+                    <div id="bar1"></div>
+                    <div id="bar2"></div>
+                    <div id="bar3"></div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+<div class = "ProjectDiv1">
+	<h1 class = "ProjectTitle1">Enigma Machine</h1>
+
+	<!--User Input-->
+
+	<div class="Inputbox">
+		<p class="stdtxt">Input text:</p>
+		<input type="text" id="inp"> 
+		</input>
+	</div>
+    <input id="Startbtn" type="button" value="Start" onclick="Enigma()"></Input>
+    <div class="Outputbox">
+        <div id="Cipher"></div>
+		
+	</div>
+	
+
+	<div class="RotorBox">
+		<p class="stdtxt">First Rotor: </p>
+		<select id="1rotor" name="Rotors">
+			<option value="R1">Rotor 1</option>
+			<option value="R2">Rotor 2</option>
+			<option value="R3">Rotor 3</option>
+			<option value="R4">Rotor 4</option>
+			<option value="R5">Rotor 5</option>
+		</select>
+
+
+		<p class="stdtxt">Second Rotor: </p>
+		<select id="2rotor" name="Rotors">
+			<option value="R1">Rotor 1</option>
+			<option value="R2">Rotor 2</option>
+			<option value="R3">Rotor 3</option>
+			<option value="R4">Rotor 4</option>
+			<option value="R5">Rotor 5</option>
+		</select>
+
+
+		<p class="stdtxt">Third Rotor: </p>
+		<select id="3rotor" name="Rotors">
+			<option value="R1">Rotor 1</option>
+			<option value="R2">Rotor 2</option>
+			<option value="R3">Rotor 3</option>
+			<option value="R4">Rotor 4</option>
+			<option value="R5">Rotor 5</option>
+		</select>
+	</div>
+
+	
+
+	<div class="PosBox">
+		<p class="stdtxt">First Pos: </p>
+		<select id="1pos" name="Positions">
+			<option value="1">Position 1</option>
+			<option value="2">Position 2</option>
+			<option value="3">Position 3</option>
+			<option value="4">Position 4</option>
+			<option value="5">Position 5</option>
+			<option value="6">Position 6</option>
+			<option value="7">Position 7</option>
+			<option value="8">Position 8</option>
+			<option value="9">Position 9</option>
+			<option value="10">Position 10</option>
+			<option value="11">Position 11</option>
+			<option value="12">Position 12</option>
+			<option value="13">Position 13</option>
+			<option value="14">Position 14</option>
+			<option value="15">Position 15</option>
+			<option value="16">Position 16</option>
+			<option value="17">Position 17</option>
+			<option value="18">Position 18</option>
+			<option value="19">Position 19</option>
+			<option value="20">Position 20</option>
+			<option value="21">Position 21</option>
+			<option value="22">Position 22</option>
+			<option value="23">Position 23</option>
+			<option value="23">Position 24</option>
+			<option value="25">Position 25</option>
+			<option value="26">Position 26</option>
+		</select>
+
+
+		<p class="stdtxt">Second Pos: </p>
+		<select id="2pos" name="Positions">
+			<option value="1">Position 1</option>
+			<option value="2">Position 2</option>
+			<option value="3">Position 3</option>
+			<option value="4">Position 4</option>
+			<option value="5">Position 5</option>
+			<option value="6">Position 6</option>
+			<option value="7">Position 7</option>
+			<option value="8">Position 8</option>
+			<option value="9">Position 9</option>
+			<option value="10">Position 10</option>
+			<option value="11">Position 11</option>
+			<option value="12">Position 12</option>
+			<option value="13">Position 13</option>
+			<option value="14">Position 14</option>
+			<option value="15">Position 15</option>
+			<option value="16">Position 16</option>
+			<option value="17">Position 17</option>
+			<option value="18">Position 18</option>
+			<option value="19">Position 19</option>
+			<option value="20">Position 20</option>
+			<option value="21">Position 21</option>
+			<option value="22">Position 22</option>
+			<option value="23">Position 23</option>
+			<option value="23">Position 24</option>
+			<option value="25">Position 25</option>
+			<option value="26">Position 26</option>
+		</select>
+
+
+		<p class="stdtxt">Third Pos: </p>
+		<select id="3pos" name="Positions">
+			<option value="1">Position 1</option>
+			<option value="2">Position 2</option>
+			<option value="3">Position 3</option>
+			<option value="4">Position 4</option>
+			<option value="5">Position 5</option>
+			<option value="6">Position 6</option>
+			<option value="7">Position 7</option>
+			<option value="8">Position 8</option>
+			<option value="9">Position 9</option>
+			<option value="10">Position 10</option>
+			<option value="11">Position 11</option>
+			<option value="12">Position 12</option>
+			<option value="13">Position 13</option>
+			<option value="14">Position 14</option>
+			<option value="15">Position 15</option>
+			<option value="16">Position 16</option>
+			<option value="17">Position 17</option>
+			<option value="18">Position 18</option>
+			<option value="19">Position 19</option>
+			<option value="20">Position 20</option>
+			<option value="21">Position 21</option>
+			<option value="22">Position 22</option>
+			<option value="23">Position 23</option>
+			<option value="23">Position 24</option>
+			<option value="25">Position 25</option>
+			<option value="26">Position 26</option>
+		</select>
+	</div>
+
+
+
+	<div class = "plugboard">
+		<div class="plug" onclick="plug(this)" id="Q">Q</div>
+		<div class="plug" onclick="plug(this)" id="W">W</div>
+		<div class="plug" onclick="plug(this)" id="E">E</div>
+		<div class="plug" onclick="plug(this)" id="R">R</div>
+		<div class="plug" onclick="plug(this)" id="T">T</div>
+		<div class="plug" onclick="plug(this)" id="Z">Z</div>
+		<div class="plug" onclick="plug(this)" id="U">U</div>
+		<div class="plug" onclick="plug(this)" id="I">I</div>
+		<div class="plug" onclick="plug(this)" id="O">O</div>
+	</div>
+	<div class = "plugboard">
+		<div class="plug" onclick="plug(this)" id="A">A</div>
+		<div class="plug" onclick="plug(this)" id="S">S</div>
+		<div class="plug" onclick="plug(this)" id="D">D</div>
+		<div class="plug" onclick="plug(this)" id="F">F</div>
+		<div class="plug" onclick="plug(this)" id="G">G</div>
+		<div class="plug" onclick="plug(this)" id="H">H</div>
+		<div class="plug" onclick="plug(this)" id="J">J</div>
+		<div class="plug" onclick="plug(this)" id="K">K</div>
+	</div>
+	<div class = "plugboard">
+		<div class="plug" onclick="plug(this)" id="P">P</div>
+		<div class="plug" onclick="plug(this)" id="Y">Y</div>
+		<div class="plug" onclick="plug(this)" id="X">X</div>
+		<div class="plug" onclick="plug(this)" id="C">C</div>
+		<div class="plug" onclick="plug(this)" id="V">V</div>
+		<div class="plug" onclick="plug(this)" id="B">B</div>
+		<div class="plug" onclick="plug(this)" id="N">N</div>
+		<div class="plug" onclick="plug(this)" id="M">M</div>
+		<div class="plug" onclick="plug(this)" id="L">L</div>
+	</div>
+</div>
+
+<div class="footer">
+	<p class="footertext">That's it for this page :(</p>
+</div>
+
+</body>
+</html>

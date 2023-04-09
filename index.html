@@ -34,14 +34,6 @@ function ToggleNav() {
 }
 </script>
 
-<script>
-    setInterval(DBG, 100);
-
-    function DBG() {
-    document.getElementById("ScreenDBG").innerHTML = "Screen width is " + window.innerWidth;
-    }
-</script>
-
 </head>
 <body>
 
@@ -62,11 +54,12 @@ function ToggleNav() {
     <div class= "TitleBox">
         <img src= "./Media/TitleImage.jpg" class="TitleImage">
         <div class= "PersonBox">
+            <p class = "TitleText" id="TT1">Hi I'm</p>
             <h1 class = "Title">
                 Sam Ridgeway
             </h1>
             <div class = "TitleDeco"></div>
-            <p class = "TitleText">I do coding things. Feel free to explore them!</p>
+            <p class = "TitleText">Welcome to my website, please feel free to explore!</p>
         </div>
     </div>
 </div>
@@ -74,11 +67,11 @@ function ToggleNav() {
 
 <div class= "MainPageDiv">
     <h2 class="MainPageTitle">
-        What am I working on now?
+        What projects have I done?
     </h2>
     <div class="WorkingOnBox">
         <p class="MainPageText">
-            Currently I am working on my project for computer science which you can check out in the projects page.
+            You can find my projects <a href="./projects.html" class="intextlink">here</a>. Alternatively here's my <a href="https://github.com/Sam-Ridgeway" class="intextlink">Github</a>.
         </p>
     </div> 
     <h2 class="MainPageTitle">
@@ -86,25 +79,20 @@ function ToggleNav() {
     </h2>
     <div class="WorkingOnBox">
         <p class="MainPageText">
-            Hopefully soon me and my friend want to start working on a game of sorts which we hope to develop together. We're unsure on the theming but i'll update here when we have a better Idea
+            I don't have many plans at the moment as I am focusing on my university work however in the future I would like to start some more projects.
         </p>
     </div> 
     <h2 class="MainPageTitle">
-        Did I have no Idea what to put on this page?
+        Want to know a little more about me?
     </h2>
     <div class="WorkingOnBox">
         <p class="MainPageText">
-            Yes.
+            Head to the <a href="./about.html" class="intextlink">About Me</a> page.
         </p>
-    </div>
-    <h2 class="MainPageTitle">
-        Nice Debug Stuff?
-    </h2>
-    <div class="WorkingOnBox">
-        <p class="MainPageText" id="ScreenDBG">
-            Yes.
-        </p>
-    </div>    
+    </div> 
+</div>
+<div class="footer">
+    <p class="footertext">That's it for this page :(</p>
 </div>
 </body>
 </html>

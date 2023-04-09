@@ -20,8 +20,8 @@ body{
 	width: calc(100px + 40vw);
 	height: auto;
 	background: rgba(20, 20, 20 , 1);
-	padding-top: 8%;
-	padding-bottom: 8%;
+	padding-top: 5%;
+	padding-bottom: 5%;
 	padding-right: 2%;
 	padding-left: 2%;
 
@@ -56,6 +56,10 @@ body{
 	font-weight: 300;
 }
 
+#TT1{
+	margin-bottom: 5%;
+}
+
 #navbar{
 	background-color: rgb(20, 20, 20);
 	position: relative;
@@ -63,6 +67,11 @@ body{
 	margin: 0;
 	padding: 20px;
 	overflow: hidden;
+}
+
+#CurrentNav{
+	font-weight: 600;
+	color: rgba(240,240,240,0.9);
 }
 
 .NavbarContainer{
@@ -146,6 +155,18 @@ body{
 		margin-right: 50px;
 	  }
 	
+}
+
+/*General Classes*/
+.intextlink{
+	text-decoration: none;
+	color: rgba(4, 4, 4,0.8);
+	font-weight: 500;
+}
+
+.intextlink:hover{
+	color: rgba(40, 180, 180,0.7);
+	font-weight: 700;
 }
 
 
@@ -266,7 +287,7 @@ body{
 	content: "";
 	position: absolute;
 	width: 3vw;
-	height: 0.6vw;
+	height: 0.7vw;
 	background-color: rgb(20, 20, 20);
 	transform: skewX(50deg);
 	transition: .4s linear;
@@ -287,6 +308,12 @@ body{
 	right:80%;
 }
 
+.ProjectIMG{
+	padding:4%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
 .Decobarcont{
 	display: flex;
 	background: rgba(20, 20, 20 , 1);
@@ -314,5 +341,156 @@ body{
 }
 
 .gameframe{
-	margin: auto;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/*About me stuff*/
+
+.AboutMeDiv{
+	width: auto;
+	height: 50%;
+	background: rgb(20, 20, 20);
+	position: relative;
+	padding: 30px;
+}
+
+.AboutMeText{	
+	border: 0 solid;
+	padding: calc(5px + 2vw);
+	margin: 0px;
+	font-size: calc(10px + 1vw);
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 300;
+	color: rgba(200, 200, 200 , 0.9);
+}
+
+.footer{
+	width: 100%;
+	height: auto;
+	background: rgba(200, 200, 200 , 0.9);
+	position: relative;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	text-align: center;
+}
+
+.footertext{
+	margin: 0px;
+	color: rgb(20, 20, 20);
+	font-size: calc(10px + 1vw);
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 300;
+}
+
+.footertext a{
+	text-decoration: none;
+	color: rgba(20, 20, 20, 0.8);
+	font-weight: 400;
+}
+
+
+/*Engima Machine Styles*/
+.inputbox{
+    display: flex;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+}
+#inp{
+	width: 40vw;
+	height: 3.2vw;
+	line-height: 3vw;
+	font-size: 2vw;
+	background-color: rgba(60, 60, 60 , 0.9);
+	color: #eeeeee;
+}
+#plaintext{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+.stdtxt{
+	color: #eeeeee;
+    font-family: 'montserrat', sans-serif;
+    font-size: 2vw;
+    margin: 20px;
+}
+
+#cipher{
+    display: flex;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    font-family: 'montserrat', sans-serif;
+	color: #eeeeee;
+    font-size: 3vw;
+    margin: 20px;
+}
+
+.outputbox{
+    display: flex;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.rotorbox{
+    display: flex;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.posbox{
+    display: flex;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.plugboard{
+    display:flex;
+    margin:auto;
+	text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat' , sans-serif;
+    font-size: 2.5vw;
+}
+
+
+.plug{
+    flex-shrink: 0;
+    padding: 0.4vw;
+    margin: 2vw;
+    cursor: pointer;
+    background: #333333;
+    color: #eeeeee;
+    width: 4vw;
+    height: 4vw;
+    border-radius: 10vw;
+    line-height: 4vw;
+    justify-content: center;
+}
+
+#StartBTN{
+	display:flex;
+    margin:auto;
+	text-align: center;
+    align-items: center;
+    justify-content: center;
+	border: 0.2vw solid rgba(0, 200, 200 , 0.8);
+	background-color:rgba(200, 200, 200 , 0.8);
+	color: rgba(20, 20, 20 , 0.9);
+	font-size: 1vw;
+	padding: 0.2vw;
+}
+
+#StartBTN:hover{
+	cursor: pointer;
 }
